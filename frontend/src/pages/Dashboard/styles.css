@@ -1,0 +1,33 @@
+
+
+.spot-list {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  margin-bottom: 30px;
+}
+
+.spot-list__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spot-list__header {
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  border-radius: 4px;
+}
+
+.spot-list__item strong {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #444;
+}
+
+.spot-list__item span {
+  font-size: 15px;
+  color: #999;
+}
