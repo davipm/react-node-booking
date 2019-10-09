@@ -68,6 +68,7 @@ export default function Login({ navigation }) {
             Encontrar Espots
           </TextButton>
         </Button>
+        {error && <Label>Um erro ocorreu tente de novo mais tarde</Label>}
       </Form>
     </Container>
   )
