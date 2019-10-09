@@ -101,6 +101,12 @@ button {
   top: 2.4rem;
 }
 
+.form__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .form__btn {
   display: block;
   border: none;
@@ -120,6 +126,10 @@ button {
 
 .form__btn--link {
   text-decoration: none;
+}
+
+.form__btn--cancel {
+  margin-left: 10px;
 }
 
 .form__btn:hover {

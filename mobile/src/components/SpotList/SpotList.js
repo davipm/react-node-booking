@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { withNavigation } from 'react-navigation';
 import api from "../../services/api";
 
 import { Container, Title, Bold, List, ListItem, Thumbnail, Company, Price, ButtonText, Button } from "./styles";
 
-export default function SpotList({ tech }) {
+export default function SpotList({ tech, navigation }) {
   const [spots, setSpots] = useState([]);
 
   useEffect(() => {
@@ -16,6 +17,10 @@ export default function SpotList({ tech }) {
     });
 
     setSpots(response.data);
+  }
+
+  function handleNavigation(id) {
+    navigation.push('Book', {id});
   }
 
   return (
@@ -32,7 +37,7 @@ export default function SpotList({ tech }) {
             <Thumbnail source={{uri: item.thumbnail_url}} />
             <Company>{item.company}</Company>
             <Price>{item.price}</Price>
-            <Button onPress={() => {}}>
+            <Button onPress={() => handleNavigation(item._id)}>
               <ButtonText>Solicitar reserva</ButtonText>
             </Button>
           </ListItem>

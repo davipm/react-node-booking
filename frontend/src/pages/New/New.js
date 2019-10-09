@@ -31,6 +31,11 @@ export default function New({ history }) {
 
     history.push('/dashboard');
   }
+
+  function handleCancel(event) {
+    event.preventDefault();
+    history.push('/dashboard');
+  }
   
   return (
     <form onSubmit={handleSubmit} className="form">
@@ -52,6 +57,7 @@ export default function New({ history }) {
       <input
         type="text"
         id="company"
+        name="company"
         placeholder="Sua empresa incrível"
         className="form__input"
         value={company}
@@ -62,6 +68,7 @@ export default function New({ history }) {
       <input
         type="text"
         id="techs"
+        name="techs"
         placeholder="Quais tecnologias usam?"
         className="form__input"
         value={techs}
@@ -69,10 +76,11 @@ export default function New({ history }) {
       />
 
       <div className="form-control">
-        <label htmlFor="techs" className="form__label">VALOR DA DIÁRIA * <span>(em branco para gratuito)</span></label>
+        <label htmlFor="price" className="form__label">VALOR DA DIÁRIA * <span>(em branco para gratuito)</span></label>
         <input
           type="number"
-          id="techs"
+          id="price"
+          name="price"
           placeholder="Valor cobrado por dia"
           className="form__input form__input--no-arrow"
           value={price}
@@ -81,7 +89,15 @@ export default function New({ history }) {
         <span className="form__price-icon">R$</span>
       </div>
 
-      <button className="form__btn">Cadastrar</button>
+      <div className="form__footer">
+        <button className="form__btn">Cadastrar</button>
+        <button
+          onClick={handleCancel}
+          className="form__btn form__btn--cancel"
+        >
+          Cancelar
+        </button>
+      </div>
     </form>
   )
 }
