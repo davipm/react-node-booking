@@ -3,19 +3,25 @@ import api from "../../services/api";
 
 export default function Login({ history }) {
   const [email, setEmail] = useState('');
+  const [error, setError] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await api.post('/sessions', { email });
+    setError(false);
 
-    //const { _id } = response.data;
+    try {
+      const response = await api.post('/sessions', { email });
+      //const { _id } = response.data;
+      console.log(response);
+      localStorage.setItem('user', '5d938dc032c8680dcc7ff057');
+      //localStorage.setItem('user', user);
+      history.push('/dashboard');
 
-    console.log(response);
-
-    localStorage.setItem('user', '5d938dc032c8680dcc7ff057');
-
-    history.push('/dashboard');
+    } catch (e) {
+      setError(true);
+      throw new Error('Um error acorreu');
+    }
   }
 
   return (
@@ -33,6 +39,7 @@ export default function Login({ history }) {
           onChange={event => setEmail(event.target.value)}
         />
         <button type="submit" className="form__btn">Entrar</button>
+        {error && <small className="form__error">Um error aconteceu, tente novamente</small>}
       </form>
     </>
   )

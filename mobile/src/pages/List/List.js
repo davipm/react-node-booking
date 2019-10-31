@@ -11,7 +11,16 @@ export default function List() {
   const [techs, setTechs] = useState([]);
 
   useEffect(() => {
+    async function loadList() {
+      const user_id = AsyncStorage.getItem('user');
+      const response = await api.get('/dashboard', {
+        headers: { user_id }
+      });
 
+      setTechs(response.data);
+      console.log(techs);
+    }
+    loadList();
   }, []);
 
   return (
