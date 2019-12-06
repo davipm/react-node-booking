@@ -20,7 +20,8 @@
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^7.0.0"
+    "babel-preset-expo": "^7.0.0",
+    "prettier": "^1.19.1"
   },
   "private": true
 }

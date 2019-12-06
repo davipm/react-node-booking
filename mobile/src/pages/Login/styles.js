@@ -6,10 +6,6 @@ export const Container = styled.KeyboardAvoidingView`
   align-items: center;
 `;
 
-// if needs add styles
-export const Image = styled.Image`
-`;
-
 export const Form = styled.View`
   align-self: stretch;
   padding: 0 30px;

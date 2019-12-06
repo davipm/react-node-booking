@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Image } from 'react-native';
 import api from "../../services/api";
 
 import logo from '../../assets/logo.png';
 
-import { Container, Image, Label, Form, Input, Button, TextButton } from "./styles";
+import { Container, Label, Form, Input, Button, TextButton } from "./styles";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');

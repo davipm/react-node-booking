@@ -1,15 +1,15 @@
-import React, { useState, useMemo } from 'react';
-import api from '../../services/api';
+import React, { useState, useMemo } from "react";
+import api from "../../services/api";
 
-import camera from '../../assets/camera.svg';
+import camera from "../../assets/camera.svg";
 
-import './styles.css';
+import "./styles.css";
 
 export default function New({ history }) {
-  const [company, setCompany] = useState('');
-  const [techs, setTechs] = useState('');
-  const [price, setPrice] = useState('');
-  const [thumbnail, setThumbnail] = useState('');
+  const [company, setCompany] = useState("");
+  const [techs, setTechs] = useState("");
+  const [price, setPrice] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
 
   const preview = useMemo(() => {
     return thumbnail ? URL.createObjectURL(thumbnail) : null;
@@ -18,32 +18,32 @@ export default function New({ history }) {
   async function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData();
-    const user_id = localStorage.getItem('user');
+    const user_id = localStorage.getItem("user");
 
-    data.append('company', company);
-    data.append('techs', techs);
-    data.append('price', price);
-    data.append('thumbnail', thumbnail);
+    data.append("company", company);
+    data.append("techs", techs);
+    data.append("price", price);
+    data.append("thumbnail", thumbnail);
 
-    await api.post('/spots', data, {
+    await api.post("/spots", data, {
       headers: { user_id }
     });
 
-    history.push('/dashboard');
+    history.push("/dashboard");
   }
 
   function handleCancel(event) {
     event.preventDefault();
-    history.push('/dashboard');
+    history.push("/dashboard");
   }
-  
+
   return (
     <form onSubmit={handleSubmit} className="form">
       <label
         htmlFor="file"
         id="thumbnail"
         style={{ backgroundImage: `url(${preview})` }}
-        className={thumbnail ? 'has-thumbnail' : ''}
+        className={thumbnail ? "has-thumbnail" : ""}
       >
         <input
           type="file"
@@ -53,7 +53,9 @@ export default function New({ history }) {
         <img src={camera} alt="Select Company" />
       </label>
 
-      <label htmlFor="company" className="form__label">EMPRESA *</label>
+      <label htmlFor="company" className="form__label">
+        EMPRESA *
+      </label>
       <input
         type="text"
         id="company"
@@ -64,7 +66,9 @@ export default function New({ history }) {
         onChange={event => setCompany(event.target.value)}
       />
 
-      <label htmlFor="techs" className="form__label">TECNOLOGIAS * <span>(separadas por virgula)</span></label>
+      <label htmlFor="techs" className="form__label">
+        TECNOLOGIAS * <span>(separadas por virgula)</span>
+      </label>
       <input
         type="text"
         id="techs"
@@ -76,7 +80,9 @@ export default function New({ history }) {
       />
 
       <div className="form-control">
-        <label htmlFor="price" className="form__label">VALOR DA DIÁRIA * <span>(em branco para gratuito)</span></label>
+        <label htmlFor="price" className="form__label">
+          VALOR DA DIÁRIA * <span>(em branco para gratuito)</span>
+        </label>
         <input
           type="number"
           id="price"
@@ -91,13 +97,10 @@ export default function New({ history }) {
 
       <div className="form__footer">
         <button className="form__btn">Cadastrar</button>
-        <button
-          onClick={handleCancel}
-          className="form__btn form__btn--cancel"
-        >
+        <button onClick={handleCancel} className="form__btn form__btn--cancel">
           Cancelar
         </button>
       </div>
     </form>
-  )
+  );
 }
