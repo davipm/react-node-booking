@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 
 *,
 *::before,
@@ -16,13 +16,13 @@ body,
 
 body {
   background: #000 url("./assets/background.jpg") no-repeat center/cover;
-  -webkit-font-smoothing: antialiased!important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 body,
 input,
 button {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
 }
 
@@ -117,11 +117,11 @@ button {
   font-size: 16px;
   font-weight: bold;
   line-height: 1.4;
-  background-color: #F05A5B;
-  color: #FFF;
+  background-color: #f05a5b;
+  color: #fff;
   cursor: pointer;
   text-decoration: none;
-  transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .form__btn--link {
@@ -133,6 +133,6 @@ button {
 }
 
 .form__btn:hover {
-  background-color: #E14F50;
+  background-color: #e14f50;
 }
 /* end form styles */

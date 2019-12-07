@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import api from "../../services/api";
 
 import {
@@ -22,7 +22,7 @@ export default function SpotList({ tech, navigation }) {
   }, []);
 
   async function loadSpots() {
-    const response = await api.get('/spots', {
+    const response = await api.get("/spots", {
       params: { tech }
     });
 
@@ -30,24 +30,26 @@ export default function SpotList({ tech, navigation }) {
   }
 
   function handleNavigation(id) {
-    navigation.push('Book', {id});
+    navigation.push("Book", { id });
   }
 
   return (
     <Container>
-      <Title>Empresas que usam <Bold>{tech}</Bold></Title>
-      
+      <Title>
+        Empresas que usam <Bold>{tech}</Bold>
+      </Title>
+
       <List
         data={spots}
-        keyStractor={item => item['_id']}
+        keyStractor={item => item["_id"]}
         horizontal
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <ListItem>
-            <Thumbnail source={{uri: item['thumbnail_url']}} />
+            <Thumbnail source={{ uri: item["thumbnail_url"] }} />
             <Company>{item.company}</Company>
             <Price>{item.price}</Price>
-            <Button onPress={() => handleNavigation(item['_id'])}>
+            <Button onPress={() => handleNavigation(item["_id"])}>
               <ButtonText>Solicitar reserva</ButtonText>
             </Button>
           </ListItem>

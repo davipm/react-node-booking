@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { AsyncStorage, Image } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { AsyncStorage, Image } from "react-native";
 
-import logo from '../../assets/logo.png';
+import logo from "../../assets/logo.png";
 
 import SpotList from "../../components/SpotList/SpotList";
 
@@ -12,8 +12,8 @@ export default function List() {
 
   useEffect(() => {
     async function loadList() {
-      const user_id = AsyncStorage.getItem('user');
-      const response = await api.get('/dashboard', {
+      const user_id = AsyncStorage.getItem("user");
+      const response = await api.get("/dashboard", {
         headers: { user_id }
       });
 
@@ -26,7 +26,9 @@ export default function List() {
   return (
     <Container>
       <Image source={logo} style={styles.logo} />
-      {techs.map(tech => <SpotList key={tech} tech={tech} />)}
+      {techs.map(tech => (
+        <SpotList key={tech} tech={tech} />
+      ))}
     </Container>
   );
 }

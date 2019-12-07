@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { AsyncStorage, Image } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { AsyncStorage, Image } from "react-native";
 import api from "../../services/api";
 
-import logo from '../../assets/logo.png';
+import logo from "../../assets/logo.png";
 
 import { Container, Label, Form, Input, Button, TextButton } from "./styles";
 
 export default function Login({ navigation }) {
-  const [email, setEmail] = useState('');
-  const [techs, setTechs] = useState('');
+  const [email, setEmail] = useState("");
+  const [techs, setTechs] = useState("");
   const [error, setError] = useState(false);
 
   // verify if is logged
   useEffect(() => {
-    AsyncStorage.getItem('user').then(user => {
+    AsyncStorage.getItem("user").then(user => {
       if (user) {
-        navigation.navigate('List');
+        navigation.navigate("List");
       }
     });
   }, []);
@@ -23,21 +23,21 @@ export default function Login({ navigation }) {
   // login handler
   async function handleSubmit() {
     //const response = await api.post('/sessions', {
-      //email
+    //email
     //});
 
-    const response = await api.get('/b/5d9763e192ec0366c8f52489');
+    const response = await api.get("/b/5d9763e192ec0366c8f52489");
 
     console.log(response.data);
 
     const { _id } = response.data;
 
-    await AsyncStorage.setItem('user', _id);
-    await AsyncStorage.setItem('user', techs);
+    await AsyncStorage.setItem("user", _id);
+    await AsyncStorage.setItem("user", techs);
 
     console.log(_id);
 
-    navigation.navigate('List');
+    navigation.navigate("List");
   }
 
   return (
@@ -64,12 +64,10 @@ export default function Login({ navigation }) {
         />
 
         <Button onPress={handleSubmit}>
-          <TextButton>
-            Encontrar Espots
-          </TextButton>
+          <TextButton>Encontrar Espots</TextButton>
         </Button>
         {error && <Label>Um erro ocorreu tente de novo mais tarde</Label>}
       </Form>
     </Container>
-  )
+  );
 }

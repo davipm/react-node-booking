@@ -48,7 +48,7 @@ export default function New({ history }) {
         <input
           type="file"
           id="file"
-          onChange={event => setThumbnail(event.target.files[0])}
+          onChange={event => setThumbnail(String(event.target.files[0]))}
         />
         <img src={camera} alt="Select Company" />
       </label>

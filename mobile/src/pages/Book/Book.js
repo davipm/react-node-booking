@@ -1,29 +1,40 @@
-import React, { useState} from 'react';
-import { AsyncStorage, Alert } from 'react-native';
+import React, { useState } from "react";
+import { AsyncStorage, Alert } from "react-native";
 
-import { Container, Label, Input, Button,CancelButton, TextButton } from "./styles";
+import {
+  Container,
+  Label,
+  Input,
+  Button,
+  CancelButton,
+  TextButton
+} from "./styles";
 
 import api from "../../services/api";
 
 export default function Book({ navigation }) {
-  const [date, setDate] = useState('');
-  const id = navigation.getParam('id');
-  
+  const [date, setDate] = useState("");
+  const id = navigation.getParam("id");
+
   async function handleSubmit() {
-    const user_id = await AsyncStorage.getItem('user');
+    const user_id = await AsyncStorage.getItem("user");
 
-    await api.post(`/spots/${id}/bookings`, {
-      date
-    }, {
-      headers: { user_id }
-    });
+    await api.post(
+      `/spots/${id}/bookings`,
+      {
+        date
+      },
+      {
+        headers: { user_id }
+      }
+    );
 
-    Alert.alert('Solicitação de reserva enviada', date);
+    Alert.alert("Solicitação de reserva enviada", date);
 
-    navigation.navigate('List');
+    navigation.navigate("List");
   }
 
-  const handleCancel = () => navigation.navigate('List');
+  const handleCancel = () => navigation.navigate("List");
 
   return (
     <Container>
@@ -38,16 +49,12 @@ export default function Book({ navigation }) {
       />
 
       <Button onPress={handleSubmit}>
-        <TextButton>
-          Solitar reserva
-        </TextButton>
+        <TextButton>Solitar reserva</TextButton>
       </Button>
 
       <CancelButton onPress={handleCancel}>
-        <TextButton>
-          Solitar reserva
-        </TextButton>
+        <TextButton>Solitar reserva</TextButton>
       </CancelButton>
     </Container>
-  )
+  );
 }
