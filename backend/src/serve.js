@@ -8,7 +8,7 @@ const routes = require("./routers");
 const app = express();
 
 mongoose.connect(
-  "mongodb+srv://davipereira:607616davi@backend-x3lsl.mongodb.net/backend?retryWrites=true&w=majority",
+  "BD-INFO",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
