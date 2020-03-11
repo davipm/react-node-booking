@@ -3,15 +3,15 @@ Complete system of Booking rooms for Coworking platform with mobile React Native
 
 ## Built With
 
-* [React.js](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [react-router-dom](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [React Native](https://maven.apache.org/) - Dependency Management
-* [Expo](https://maven.apache.org/) - Dependency Management
-* [Express](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-* [MoongoDB](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-* [react-navigation](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-* [axios](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-* [styled-component](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* React.js
+* react-router-dom
+* React Native
+* Expo
+* Express
+* MoongoDB
+* react-navigation
+* axios
+* styled-component
 
 ## Authors
 
