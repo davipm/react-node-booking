@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./pages/Login";
@@ -14,10 +14,12 @@ export default function Routes() {
         <Route path="/new" component={New} />
         <Route path="*">
           <div className="container">
-            <Link to="/" className="form__btn form__btn--link">Página não encontrada</Link>
+            <Link to="/" className="form__btn form__btn--link">
+              Página não encontrada
+            </Link>
           </div>
         </Route>
       </Switch>
     </BrowserRouter>
-  )
+  );
 }

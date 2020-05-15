@@ -17,19 +17,23 @@ export default function New({ history }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData();
-    const user_id = localStorage.getItem("user");
+    try {
+      const data = new FormData();
+      const user_id = localStorage.getItem("user");
 
-    data.append("company", company);
-    data.append("techs", techs);
-    data.append("price", price);
-    data.append("thumbnail", thumbnail);
+      data.append("company", company);
+      data.append("techs", techs);
+      data.append("price", price);
+      data.append("thumbnail", thumbnail);
 
-    await api.post("/spots", data, {
-      headers: { user_id }
-    });
+      await api.post("/spots", data, {
+        headers: { user_id }
+      });
 
-    history.push("/dashboard");
+      history.push("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function handleCancel(event) {
@@ -48,7 +52,7 @@ export default function New({ history }) {
         <input
           type="file"
           id="file"
-          onChange={event => setThumbnail(String(event.target.files[0]))}
+          onChange={event => setThumbnail(event.target.files[0])}
         />
         <img src={camera} alt="Select Company" />
       </label>

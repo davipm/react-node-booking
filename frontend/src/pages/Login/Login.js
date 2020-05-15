@@ -7,20 +7,15 @@ export default function Login({ history }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
     setError(false);
-
     try {
       const response = await api.post('/sessions', { email });
-      //const { _id } = response.data;
-      console.log(response);
-      localStorage.setItem('user', '5d938dc032c8680dcc7ff057');
-      //localStorage.setItem('user', user);
+      const { _id } = response.data;
+      localStorage.setItem('user', _id);
       history.push('/dashboard');
-
-    } catch (e) {
+      console.log(_id)
+    } catch (error) {
       setError(true);
-      throw new Error('Um error acorreu');
     }
   }
 

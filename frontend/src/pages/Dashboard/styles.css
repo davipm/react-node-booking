@@ -1,5 +1,3 @@
-
-
 .spot-list {
   width: 100%;
   list-style: none;
@@ -30,4 +28,30 @@
 .spot-list__item span {
   font-size: 15px;
   color: #999;
+}
+
+.notifications {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.notifications__item {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.notifications__btn {
+  margin-top: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+}
+
+.notifications__btn--accept {
+  color: #84C870;
+}
+
+.notifications__btn--reject {
+  color: #E55E5E;
 }
