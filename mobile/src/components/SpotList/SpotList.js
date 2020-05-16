@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { withNavigation } from "react-navigation";
 import api from "../../services/api";
 
 import {
@@ -14,24 +15,25 @@ import {
   Button
 } from "./styles";
 
-export default function SpotList({ tech, navigation }) {
+function SpotList({ tech, navigation }) {
   const [spots, setSpots] = useState([]);
 
   useEffect(() => {
+    async function loadSpots() {
+      const response = await api.get("/spots", {
+        params: { tech }
+      });
+      setSpots(response.data);
+    }
+
     loadSpots();
   }, []);
 
-  async function loadSpots() {
-    const response = await api.get("/spots", {
-      params: { tech }
-    });
-
-    setSpots(response.data);
+  function handleNavigate(id) {
+    navigation.navigate("Book", { id });
   }
 
-  function handleNavigation(id) {
-    navigation.push("Book", { id });
-  }
+  console.log(spots);
 
   return (
     <Container>
@@ -41,15 +43,19 @@ export default function SpotList({ tech, navigation }) {
 
       <List
         data={spots}
-        keyStractor={item => item["_id"]}
+        keyExtractor={spot => spot._id}
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <ListItem>
-            <Thumbnail source={{ uri: item["thumbnail_url"] }} />
+            <Thumbnail
+              source={{
+                uri: `http://192.168.0.102:3333/files/${item.thumbnail}`
+              }}
+            />
             <Company>{item.company}</Company>
-            <Price>{item.price}</Price>
-            <Button onPress={() => handleNavigation(item["_id"])}>
+            <Price>{item.price ? `R$${item.price}/dia` : "GRATUITO"}</Price>
+            <Button onPress={() => handleNavigate(item._id)}>
               <ButtonText>Solicitar reserva</ButtonText>
             </Button>
           </ListItem>
@@ -58,3 +64,5 @@ export default function SpotList({ tech, navigation }) {
     </Container>
   );
 }
+
+export default withNavigation(SpotList);

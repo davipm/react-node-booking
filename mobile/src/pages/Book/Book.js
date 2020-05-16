@@ -29,7 +29,7 @@ export default function Book({ navigation }) {
       }
     );
 
-    Alert.alert("Solicitação de reserva enviada", date);
+    Alert.alert("Solicitação de reserva enviada");
 
     navigation.navigate("List");
   }
@@ -53,7 +53,7 @@ export default function Book({ navigation }) {
       </Button>
 
       <CancelButton onPress={handleCancel}>
-        <TextButton>Solitar reserva</TextButton>
+        <TextButton>Cancelar</TextButton>
       </CancelButton>
     </Container>
   );

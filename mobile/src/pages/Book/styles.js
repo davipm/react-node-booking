@@ -1,6 +1,8 @@
 import styled from "styled-components/native";
 
-export const Container = styled.SafeAreaView``;
+export const Container = styled.View`
+  margin: 30px;
+`;
 
 export const Label = styled.Text`
   font-weight: bold;
@@ -21,7 +23,7 @@ export const Input = styled.TextInput`
 
 export const Button = styled.TouchableOpacity`
   height: 42px;
-  background-color: #F05A5B;
+  background-color: #f05a5b;
   justify-content: center;
   align-items: center;
   border-radius: 2px;
@@ -29,7 +31,7 @@ export const Button = styled.TouchableOpacity`
 
 export const CancelButton = styled.TouchableOpacity`
   height: 42px;
-  background-color: #CCC;
+  background-color: #ccc;
   justify-content: center;
   align-items: center;
   border-radius: 2px;
@@ -37,7 +39,7 @@ export const CancelButton = styled.TouchableOpacity`
 `;
 
 export const TextButton = styled.Text`
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: bold;
   font-size: 16px;
 `;

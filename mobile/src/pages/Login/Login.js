@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AsyncStorage, Image } from "react-native";
+import { AsyncStorage, Image, Platform } from "react-native";
 import api from "../../services/api";
 
 import logo from "../../assets/logo.png";
@@ -22,26 +22,20 @@ export default function Login({ navigation }) {
 
   // login handler
   async function handleSubmit() {
-    //const response = await api.post('/sessions', {
-    //email
-    //});
-
-    const response = await api.get("/b/5d9763e192ec0366c8f52489");
-
-    console.log(response.data);
+    const response = await api.post('/sessions', {
+      email
+    });
 
     const { _id } = response.data;
 
-    await AsyncStorage.setItem("user", _id);
-    await AsyncStorage.setItem("user", techs);
+    await AsyncStorage.setItem('user', _id);
+    await AsyncStorage.setItem('techs', techs);
 
-    console.log(_id);
-
-    navigation.navigate("List");
+    navigation.navigate('List');
   }
 
   return (
-    <Container behavior="padding">
+    <Container behavior="padding" enabled={Platform.OS === 'ios'}>
       <Image source={logo} />
       <Form>
         <Label>SEU EMAIL *</Label>

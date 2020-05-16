@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   margin-top: 30px;
 `;
 
@@ -21,12 +21,10 @@ export const List = styled.FlatList`
 `;
 
 export const ListItem = styled.View`
- margin-right: 15px;
+  margin-right: 15px;
 `;
 
-export const Thumbnail = styled.Image.attrs({
-  resizeMode: 'cover'
-})`
+export const Thumbnail = styled.Image`
   width: 200px;
   height: 120px;
   border-radius: 2px;
@@ -40,28 +38,22 @@ export const Company = styled.Text`
 `;
 
 export const Price = styled.Text`
-  font-size:15px;
+  font-size: 15px;
   color: #999;
   margin-top: 5px;
 `;
 
 export const Button = styled.TouchableOpacity`
   height: 32px;
-  background-color: #F05A5B;
+  background-color: #f05a5b;
   justify-content: center;
+  align-items: center;
   border-radius: 2px;
   margin-top: 15px;
 `;
 
 export const ButtonText = styled.Text`
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
   font-size: 15px;
 `;
-
-
-
-
-
-
-
