@@ -15,8 +15,4 @@ Complete system of Booking rooms for Coworking platform with mobile React Native
 
 ## Authors
 
-* **Davi Pereira** 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Davi Pereira** in 2019 

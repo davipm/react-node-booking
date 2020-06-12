@@ -14,9 +14,7 @@ export default function Login({ navigation }) {
   // verify if is logged
   useEffect(() => {
     AsyncStorage.getItem("user").then(user => {
-      if (user) {
-        navigation.navigate("List");
-      }
+      if (user) navigation.navigate("List");
     });
   }, []);
 

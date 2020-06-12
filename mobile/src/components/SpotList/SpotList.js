@@ -50,7 +50,7 @@ function SpotList({ tech, navigation }) {
           <ListItem>
             <Thumbnail
               source={{
-                uri: `http://192.168.0.102:3333/files/${item.thumbnail}`
+                uri: `http://192.168.0.100:3333/files/${item.thumbnail}`
               }}
             />
             <Company>{item.company}</Company>
