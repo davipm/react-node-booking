@@ -1,0 +1,57 @@
+.spot-list {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  margin-bottom: 30px;
+}
+
+.spot-list__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spot-list__header {
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  border-radius: 4px;
+}
+
+.spot-list__item strong {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #444;
+}
+
+.spot-list__item span {
+  font-size: 15px;
+  color: #999;
+}
+
+.notifications {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.notifications__item {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.notifications__btn {
+  margin-top: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+}
+
+.notifications__btn--accept {
+  color: #84C870;
+}
+
+.notifications__btn--reject {
+  color: #E55E5E;
+}
