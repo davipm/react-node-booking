@@ -9,6 +9,7 @@ Complete system of Booking rooms for Coworking platform with mobile React Native
 * Expo
 * Express
 * MoongoDB
+* Multer
 * react-navigation
 * axios
 * styled-component
