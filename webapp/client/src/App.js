@@ -1,9 +1,11 @@
 import React from "react";
+
 import Routes from "./routes";
-import "./App.css";
 import logo from "./assets/logo.svg";
 
-function App() {
+import "./App.css";
+
+export default function App() {
   return (
     <div className="container">
       <img src={logo} alt="Logo Airinc" className="logo" />
@@ -13,5 +15,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
